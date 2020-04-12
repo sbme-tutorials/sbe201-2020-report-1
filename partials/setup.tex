@@ -1,0 +1,149 @@
+\sisetup{output-decimal-marker={,},exponent-product=\cdot}
+
+    
+    
+    
+\DeclareSIUnit\atm{atm}
+\DeclareSIUnit\dioptre{D}
+
+\def\BState{\State\hskip-\ALG@thistlm}
+
+% Setup the page geometry
+\geometry{a4paper,top=15mm, bottom=15mm, footskip=5mm}
+
+
+\definecolor{TitleColor}{rgb}{0.65,0.04,0.07}
+\definecolor{NumberColor}{rgb}{0.02,0.04,0.48}
+
+\DeclareInstance{exsheets-heading}{fancy}{default}{
+toc-reversed = true ,
+indent-first = true ,
+vscale = 2 ,
+pre-code = \IfInsideQuestionT{\rule{\linewidth}{1pt}} ,
+post-code =\IfInsideQuestionT{\rule{\linewidth}{1pt}} ,
+title-format = \large\scshape\color{Maroon},
+subtitle-format = \large\scshape\color{rgb:red,0.65;green,0.04;blue,0.07} ,
+number-format = \large\bfseries\color{rgb:red,0.02;green,0.04;blue,0.48} ,
+points-format = \itshape ,
+join = { number[r,B]title[l,B](.333em,0pt);
+title[r,B]subtitle[l,B](1em,0pt)
+} ,
+attach =
+{
+main[hc,vc]number[hc,vc](0pt,0pt) ;
+main[l,vc]subtitle[hc,vc](\marginparsep,0pt)
+}
+}
+
+
+
+\DeclareInstance{exsheets-heading}{block-subtitle}{default}{
+vscale = 2 ,
+pre-code = \rule{\linewidth}{1pt} ,
+post-code = \rule{\linewidth}{1pt} ,
+title-format = \large\scshape\color{Maroon} ,
+number-format = \large\bfseries\color{Blue} ,
+subtitle-format = \large\scshape\color{black} ,
+join = {
+title[r,B]number[l,B](.333em,0pt) ;
+title[r,B]subtitle[l,B](1em,0pt)
+} ,
+attach = {
+main[l,vc]title[l,vc](0pt,0pt) ;
+main[r,vc]points[l,vc](\marginparsep,0pt)
+},
+}
+
+\DeclareQuestionClass{textbook}{textbooks}
+
+\SetupExSheets{
+  headings = fancy,
+  question/print = true ,
+  solution/print = true }
+ % counter-format = se.qu ,
+%  counter-within = section ,
+  %question/pre-hook = \rule{\textwidth}{1pt},
+
+
+\hypersetup{
+	colorlinks = true, 
+	breaklinks = true, 
+	bookmarks = true,
+	bookmarksnumbered = true,
+	urlcolor = blue, 
+	linkcolor = blue, 
+	citecolor=blue,
+	linktoc=page, 
+	pdftitle={}, 
+	pdfauthor={\textcopyright Author}, 
+	pdfsubject={}, 
+	pdfkeywords={}, 
+	pdfcreator={pdfLaTeX}, % PDF Creator
+	pdfproducer={IEEE} }
+
+
+
+\lstset{
+frame=single,
+xleftmargin=20pt,
+numbers=left,
+numberstyle=\small,
+tabsize=2,
+breaklines,
+showspaces=false,
+showstringspaces=false,
+language=r,
+keywordstyle=\color{blue}\ttfamily,
+stringstyle=\color{red}\ttfamily,
+commentstyle=\color{green}\ttfamily,
+morecomment=[l][\color{magenta}]{\#},
+basicstyle=\small\ttfamily
+}
+
+
+\RenewQuSolPair{question}[name=Problem]{solution}
+
+
+\newfontfamily\crimsonfont[
+  Path=partials/fonts/,
+  UprightFont=*-Roman,
+  ItalicFont=*-Italic,
+  BoldFont=*-Bold,
+  BoldItalicFont=*-BoldItalic,
+]{Crimson}
+
+%\setmainfont[
+%  Path=../fonts/,
+%  UprightFont=*-Roman,
+%  ItalicFont=*-Italic,
+%  BoldFont=*-Bold,
+%  BoldItalicFont=*-BoldItalic,
+%]{Crimson}
+
+\setmainfont[
+  Path=partials/fonts/,
+  UprightFont=*-Regular,
+  ItalicFont=*-It,
+  BoldFont=*-Bold,
+  BoldItalicFont=*-BoldIt
+]{MinionPro}
+
+
+\setsansfont[
+  Path=partials/fonts/,
+  UprightFont=*-Regular,
+  ItalicFont=*-Italic,
+  BoldFont=*-Bold,
+  BoldItalicFont=*-BoldItalic,
+]{Roboto}
+ 
+
+
+\fancyhf{}
+\fancyfoot[L]{\footnotesize{(Last build on \today\ at \currenttime)}}
+\pagestyle{fancy}
+
+\usemintedstyle{monokai}
+\definecolor{bg}{rgb}{0.95,0.95,0.95}
+\setmintedinline{bgcolor=Black}
+\newcommand{\CppVerb}[1]{\mintinline{c++}{#1}}

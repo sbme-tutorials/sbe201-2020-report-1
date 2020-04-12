@@ -1,0 +1,219 @@
+\documentclass[usenames,dvipsnames]{article}
+
+%\renewcommand{\familydefault}{\sfdefault}
+
+\input{partials/includes}
+\input{partials/setup}
+\input{partials/styles}
+
+\renewcommand{\familydefault}{\rmdefault}
+
+%YOUR NAME HERE
+\newcommand{\studentname}{Asem Mohamed Alaaeldin}
+%YOUR SECTION HERE INSTEAD OF 0
+\newcommand{\SN}{ 0 }
+%YOUR BENCH NUMBER HERE INSTEAD OF 0
+\newcommand{\BN}{ 0 }
+
+
+\author{\studentname ~ Sec. \SN ~ BN. \BN}
+\date{Sunday 12\textsuperscript{th} April, 2020}
+\title{Data Structures and Algorithms [SBE201] (Spring 2020)\\ Report 1\\~\\
+{\small  Linked Lists }}
+
+\makeatletter
+\@addtoreset{question}{section}
+  
+\hypersetup{
+    pdfauthor={{Asem Alaa}},
+    pdftitle={{\@title}},
+    pdfsubject={Data Structures and Algorithms [SBE201] (Spring 2020)},
+    pdfkeywords={Report 1, Linked Lists}
+    }
+    
+\makeatother
+\begin{document}
+
+\maketitle
+
+\section{Problem Set}
+
+\subsection{Linked List Size}
+
+\begin{minted}[bgcolor=Black,frame=lines,framesep=2mm,baselinestretch=1.2,linenos]{c}
+struct IntegerNode
+{
+  int data;
+  IntegerNode *next;
+};
+
+int size( IntegerNode *front )
+{
+
+}
+\end{minted}
+
+
+\begin{question}
+\begin{enumerate}[A)]
+\item Implement the function \CppVerb{size} that returns the size of a given linked list (count of elements).
+\item Provide a time complexity estimate using the Big-O notation.
+\item Can you provide a recursive version of the \CppVerb{size} function?
+\end{enumerate}
+\end{question}
+
+\begin{solution}
+
+% SOLUTION HERE
+
+\end{solution}
+
+
+\subsection{Linked List Operations}
+
+\begin{minted}[bgcolor=Black,frame=lines,framesep=2mm,baselinestretch=1.2,linenos]{c}
+#include <iostream>
+struct IntegerNode
+{
+  int data;
+  IntegerNode *next;
+};
+void funx(node* front)
+{
+  if(front == nullptr) return;
+  fun1(front->next);
+  std::cout << front->data << " ";
+}
+\end{minted}
+
+
+\begin{question}
+
+\begin{enumerate}[A)]
+\item What does the function \CppVerb{funx} do?
+\item What is the output would be if the input linked list is represented in order as: \CppVerb{5->90->300->7->55}
+\item What is the time complexity of such a function.
+\end{enumerate}
+\end{question}
+
+\begin{solution}
+
+% SOLUTION HERE
+
+
+\end{solution}
+
+
+
+\subsection{Doubly-Linked List}
+
+\begin{minted}[bgcolor=Black,frame=lines,framesep=2mm,baselinestretch=1.2,linenos]{c}
+struct IntegerNode
+{
+  int data;
+  IntegerNode *next;
+  IntegerNode *back;
+};
+
+struct IntegersLL
+{
+  IntegerNode *front;
+};
+
+void insertAt( IntegersLL &list , int index, int data )
+{
+  
+}
+\end{minted}
+
+\begin{question}
+\begin{enumerate}[A)]
+\item Implement a function \CppVerb{insertAt} to insert an element at arbitrary \CppVerb{index} in a \textbf{linked list}.
+\item Provide a visual illustratoin to the steps in order to support that operation.
+\end{enumerate}
+\end{question}
+\begin{solution}
+% SOLUTION HERE
+
+\end{solution}
+
+
+\subsection{Circular Linked List}
+
+
+\begin{minted}[bgcolor=Black,frame=lines,framesep=2mm,baselinestretch=1.2,linenos]{c}
+struct IntegerNode
+{
+  int data;
+  IntegerNode *next;
+  IntegerNode *back;
+};
+
+struct IntegersLL
+{
+  IntegerNode *front;
+};
+
+void pushFront( IntegerLL &list, int data )
+{
+    list.front = new node{ data , list.front };
+}
+
+node *backNode( IntegerLL &list )
+{
+    node *temp = list.front;
+    while( temp->next != nullptr )
+        temp = temp->next;
+    return temp;
+}
+
+void *pushBack( IntegerLL &list, double data )
+{
+    if( list.front == nullptr )
+        return pushFront( list , data );
+    else
+    {
+        node *back = backNode( list );
+        back->next = new node{ data , nullptr };
+    }
+}
+
+void removeBack( IntegerLL &list )
+{ 
+    if( isEmpty( list ))
+        return;
+    else if( list.front->next != nullptr )
+        removeFront( list );
+    else
+    {
+        IntegerNode *prev = list.front;
+        while( prev->next->next != nullptr )
+            prev = prev->next;
+        delete prev->next;
+        prev->next = nullptr;
+    }
+}
+
+void printLL( IntegerLL &list )
+{
+    node *current = list.front;
+    while( current != nullptr )
+    {
+        std::cout << current->data;
+        current = current->next;
+    }
+}
+\end{minted}
+
+
+\begin{question}
+The functions: \CppVerb{pushFront}, \CppVerb{backNode}, \CppVerb{pushBack}, \CppVerb{removeBack}, and \CppVerb{printLL} are a implemented earlier for a regular linked list.
+How would you change each function to work properly for a circular linked list that uses only a \textbf{front} pointer.
+\end{question}
+
+\begin{solution}
+% SOLUTION HERE
+
+\end{solution}
+
+\end{document}
