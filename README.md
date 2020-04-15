@@ -7,7 +7,22 @@
 
 ##### 1. Linked List Size
 
+```c++
+struct IntegerNode
+{
+  int data;
+  IntegerNode *next;
+};
 
+int size( IntegerNode *front )
+{
+
+}
+```
+
+- A) Implement the function `size` that returns the size of a given linked list (count of elements).
+- B) Provide a time complexity estimate using the Big-O notation.
+- C) Can you provide a recursive version of the `size` function?
 
 ###### Solution
 
