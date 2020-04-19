@@ -132,7 +132,7 @@ void removeBack( IntegerLL &list )
 { 
     if( isEmpty( list ))
         return;
-    else if( list.front->next != nullptr )
+    else if( list.front->next == nullptr )
         removeFront( list );
     else
     {
