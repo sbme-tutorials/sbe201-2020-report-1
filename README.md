@@ -92,7 +92,6 @@ struct IntegerNode
 {
   int data;
   IntegerNode *next;
-  IntegerNode *back;
 };
 
 struct IntegersLL
