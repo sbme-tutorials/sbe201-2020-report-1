@@ -26,6 +26,29 @@ int size( IntegerNode *front )
 
 ###### Solution
 
+- A) 
+```c++
+int size( IntegerNode *front )
+{
+  int count = 0;
+  auto tempt = front;
+  while( temp != nullptr ) 
+  {
+    ++count;
+    temp = temp->next;
+   }
+  else count;
+}
+```
+- B) *O(n)*
+- C) Can you provide a recursive version of the `size` function?
+```c++
+int size( IntegerNode *front )
+{
+  if( front == nullptr ) return 0;
+  else return 1 + size( front->next );
+}
+```
 
 ##### 2. Linked List Operations
 
@@ -55,6 +78,9 @@ void fun1(node* front)
 
 ###### Solution
 
+- A) prints the elements of the LL in **reversed order**.
+- B) `"55 7 300 90 5"`
+- C) *O(n)*
 
 ##### 3. Doubly-Linked List
 
@@ -73,17 +99,26 @@ struct IntegersLL
 ```
 
 - A) Implement a function to insert an element at arbitrary `index` in a **double linked list**.
+- B) Provide a visual illustratoin to the steps in order to support that operation.
+
+
+###### Solution
+
+- A) Implement a function to insert an element at arbitrary `index` in a **double linked list**.
 
 ```c++
 void insertAt( IntegersLL &list , int index, int data )
 {
-  
+  auto temp = list.front;
+  for( int i = 0; i < index; ++i ) temp = temp->next;
+  auto node = new IntegerNode{ data , temp , temp->prev };
+  if( temp->next ) temp->next->prev = node;
+  if( temp->prev ) temp->prev->next = node;
 }
 ```
 - B) Provide a visual illustratoin to the steps in order to support that operation.
 
-###### Solution
-
+![](imgs/insertAt.png)
 
 ##### 4. Circular Linked List
 
@@ -157,3 +192,6 @@ void printLL( IntegerLL &list )
 - A) How would you change each function to work properly for a circular linked list that uses only a `front` pointer.
 
 ###### Solution
+
+- Check [an implementation of circular doubly-linked list (template class)](https://github.com/sbme-tutorials/sbme-tutorials.github.io/blob/master/2020/data-structures/snippets/report1/cdll/main.cpp)
+- Check [an implementation of circular singly-linked list (template class)](https://github.com/sbme-tutorials/sbme-tutorials.github.io/blob/master/2020/data-structures/snippets/report1/dll/main.cpp)
