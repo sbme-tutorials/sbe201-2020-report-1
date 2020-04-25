@@ -120,6 +120,8 @@ void insertAt( IntegersLL &list , int index, int data )
 
 ![](imgs/insertAt.png)
 
+> Page 348, Dale's textbook.
+
 ##### 4. Circular Linked List
 
 ```c++
@@ -194,4 +196,4 @@ void printLL( IntegerLL &list )
 ###### Solution
 
 - Check [an implementation of circular doubly-linked list (template class)](https://github.com/sbme-tutorials/sbme-tutorials.github.io/blob/master/2020/data-structures/snippets/report1/cdll/main.cpp)
-- Check [an implementation of circular singly-linked list (template class)](https://github.com/sbme-tutorials/sbme-tutorials.github.io/blob/master/2020/data-structures/snippets/report1/dll/main.cpp)
+- Check [an implementation of circular singly-linked list (template class)](https://github.com/sbme-tutorials/sbme-tutorials.github.io/blob/master/2020/data-structures/snippets/report1/cll/main.cpp)

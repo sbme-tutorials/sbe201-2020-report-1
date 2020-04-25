@@ -32,15 +32,23 @@
     }
     
 \makeatother
+
+
 \begin{document}
 
 \maketitle
+
+\newminted{cpp}{bgcolor=Black,frame=lines,framesep=2mm,baselinestretch=1.2,linenos}
 
 \section{Problem Set}
 
 \subsection{Linked List Size}
 
-\begin{minted}[bgcolor=Black,frame=lines,framesep=2mm,baselinestretch=1.2,linenos]{c}
+
+
+
+\cprotEnv \begin{question}
+\begin{cppcode}
 struct IntegerNode
 {
   int data;
@@ -51,10 +59,8 @@ int size( IntegerNode *front )
 {
 
 }
-\end{minted}
+\end{cppcode}
 
-
-\begin{question}
 \begin{enumerate}[A)]
 \item Implement the function \CppVerb{size} that returns the size of a given linked list (count of elements).
 \item Provide a time complexity estimate using the Big-O notation.
@@ -62,16 +68,46 @@ int size( IntegerNode *front )
 \end{enumerate}
 \end{question}
 
-\begin{solution}
+\cprotEnv \begin{solution}
 
-% SOLUTION HERE
+\begin{enumerate}[A)]
+\item  \mbox{}\\
+
+\begin{cppcode}
+int size( IntegerNode *front )
+{
+  int count = 0;
+  auto tempt = front;
+  while( temp != nullptr ) 
+  {
+    ++count;
+    temp = temp->next;
+   }
+  else count;
+}
+\end{cppcode}
+\item $O(n)$
+\item \mbox{}\\
+\begin{cppcode}
+int size( IntegerNode *front )
+{
+  if( front == nullptr ) return 0;
+  else return 1 + size( front->next );
+}
+\end{cppcode}
+\end{enumerate}
+
 
 \end{solution}
 
 
 \subsection{Linked List Operations}
 
-\begin{minted}[bgcolor=Black,frame=lines,framesep=2mm,baselinestretch=1.2,linenos]{c}
+
+
+
+\cprotEnv \begin{question}
+\begin{cppcode}
 #include <iostream>
 struct IntegerNode
 {
@@ -84,10 +120,7 @@ void funx(node* front)
   fun1(front->next);
   std::cout << front->data << " ";
 }
-\end{minted}
-
-
-\begin{question}
+\end{cppcode}
 
 \begin{enumerate}[A)]
 \item What does the function \CppVerb{funx} do?
@@ -98,8 +131,11 @@ void funx(node* front)
 
 \begin{solution}
 
-% SOLUTION HERE
-
+\begin{enumerate}[A)]
+\item prints the elements of the LL in \textbf{reversed order}.
+\item \CppVerb{"55 7 300 90 5"}
+\item $O(n)$
+\end{enumerate}
 
 \end{solution}
 
@@ -107,7 +143,10 @@ void funx(node* front)
 
 \subsection{Doubly-Linked List}
 
-\begin{minted}[bgcolor=Black,frame=lines,framesep=2mm,baselinestretch=1.2,linenos]{c}
+
+
+\cprotEnv \begin{question}
+\begin{cppcode}
 struct IntegerNode
 {
   int data;
@@ -124,16 +163,33 @@ void insertAt( IntegersLL &list , int index, int data )
 {
   
 }
-\end{minted}
-
-\begin{question}
+\end{cppcode}
 \begin{enumerate}[A)]
 \item Implement a function \CppVerb{insertAt} to insert an element at arbitrary \CppVerb{index} in a \textbf{linked list}.
 \item Provide a visual illustratoin to the steps in order to support that operation.
 \end{enumerate}
 \end{question}
-\begin{solution}
-% SOLUTION HERE
+\cprotEnv \begin{solution}
+
+\begin{enumerate}[A)]
+\item  \mbox{}\\
+\begin{cppcode}
+void insertAt( IntegersLL &list , int index, int data )
+{
+  auto temp = list.front;
+  for( int i = 0; i < index; ++i ) temp = temp->next;
+  auto node = new IntegerNode{ data , temp , temp->prev };
+  if( temp->next ) temp->next->prev = node;
+  if( temp->prev ) temp->prev->next = node;
+}
+\end{cppcode}
+
+\item 
+
+\includegraphics{imgs/insertAt.png}
+
+
+\end{enumerate}
 
 \end{solution}
 
@@ -141,7 +197,11 @@ void insertAt( IntegersLL &list , int index, int data )
 \subsection{Circular Linked List}
 
 
-\begin{minted}[bgcolor=Black,frame=lines,framesep=2mm,baselinestretch=1.2,linenos]{c}
+
+
+
+\cprotEnv \begin{question}
+\begin{cppcode}
 struct IntegerNode
 {
   int data;
@@ -202,17 +262,19 @@ void printLL( IntegerLL &list )
         current = current->next;
     }
 }
-\end{minted}
+\end{cppcode}
 
-
-\begin{question}
 The functions: \CppVerb{pushFront}, \CppVerb{backNode}, \CppVerb{pushBack}, \CppVerb{removeBack}, and \CppVerb{printLL} are a implemented earlier for a regular linked list.
 How would you change each function to work properly for a circular linked list that uses only a \textbf{front} pointer.
 \end{question}
 
 \begin{solution}
-% SOLUTION HERE
 
+\begin{itemize}
+\item Check \href{https://github.com/sbme-tutorials/sbme-tutorials.github.io/blob/master/2020/data-structures/snippets/report1/cdll/main.cpp}{an implementation of circular doubly-linked list (template class)}
+\item Check \href{https://github.com/sbme-tutorials/sbme-tutorials.github.io/blob/master/2020/data-structures/snippets/report1/cll/main.cpp}{an implementation of circular singly-linked list (template class)}
+
+\end{itemize}
 \end{solution}
 
 \end{document}
